@@ -1,0 +1,22 @@
+import difflib
+
+# Dictionary of known words
+dictionary = ["apple", "banana", "cherry", "orange", "pear","right"]
+
+# Function to perform auto-correction
+def autocorrect(word):
+    corrected_word = difflib.get_close_matches(word, dictionary, n=1)
+    if corrected_word:
+        return corrected_word[0]
+    else:
+        return None
+
+# Example usage
+input_word = "rgith"
+corrected_word = autocorrect(input_word)
+
+if corrected_word:
+    print(f"Input: {input_word}")
+    print(f"Auto-corrected: {corrected_word}")
+else:
+    print("No auto-correction available.")
